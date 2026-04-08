@@ -1,4 +1,4 @@
-# SON — CME Sonifier
+# SON
 
 [![Status](https://img.shields.io/badge/status-active-black)](#)
 [![License](https://img.shields.io/badge/license-all_rights_reserved-red)](./LICENSE)
