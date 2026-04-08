@@ -84,54 +84,6 @@ The project therefore emphasizes:
 
 ---
 
-## Repository Structure
-
-```text
-.
-├── SON.html      # complete application: UI, event data, physics estimates, audio engine, visualization, WAV export
-├── README.md     # repository documentation
-└── LICENSE       # repository license terms
-```
-
-This repository intentionally avoids a multi-directory build layout. The objective is portability, inspectability, and ease of deployment.
-
----
-
-## Quick Start
-
-### Open directly in a browser
-
-Clone or download the repository, then open:
-
-```text
-SON.html
-```
-
-in a modern desktop browser.
-
-### Run with a lightweight local server
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000/SON.html
-```
-
-### Recommended browsers
-
-- Chrome / Chromium
-- Edge
-- Firefox
-- Safari with modern Web Audio support
-
-Because browser audio typically requires a user gesture, playback should be initiated from the interface after the page loads.
-
----
-
 ## Usage Workflow
 
 1. Open `SON.html`.
