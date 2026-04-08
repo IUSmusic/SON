@@ -1,6 +1,6 @@
 # SON
 
-*Demo*
+** Demo*:
 https://iusmusic.github.io/SON/
 
 
