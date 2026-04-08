@@ -7,7 +7,7 @@
 <meta name="description" content="CME Sonifier — coronal mass ejection events translated into interactive audio and visuals." />
 <style>
 html, body, #root { margin: 0; width: 100%; height: 100%; background: #000208; }
-body { overflow: hidden; }
+body { overflow: auto; }
 * { box-sizing: border-box; }
 #logo { position: fixed; top: 8px; left: 8px; width: 60px; height: auto; z-index: 1000; }
 </style>
@@ -587,14 +587,10 @@ function CMESonifier() {
   const [audioLevel, setAudioLevel] = useState(0);
   const [tab, setTab]             = useState('physics');
   const [vol, setVol]             = useState(0.72);
-
-  // Track whether the viewport is narrow (mobile) and adjust layout accordingly.
   const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    const handleResize = () => {
-      // Consider screens narrower than 600px as mobile.
-      setIsMobile(window.innerWidth < 600);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -984,14 +980,15 @@ function CMESonifier() {
     <div style={{
       display:'flex',
       flexDirection:'column',
-      height:'100vh',
+      minHeight:'100vh',
       width:'100%',
       background:'#000208',
       color:'#c0d4e8',
       fontFamily:"'Courier New',monospace",
       // Allow scrolling on small viewports instead of clipping content. This prevents
       // sidebars and controls from being cut off on narrow screens.
-      overflow:'auto',
+      overflowX:'hidden',
+      overflowY:'auto',
       userSelect:'none',
     }}>
 
@@ -1024,23 +1021,12 @@ function CMESonifier() {
       </div>
 
       {/* ═══ BODY ═══ */}
-      <div style={{
-        display:'flex',
-        flex:1,
-        // Stack panels vertically on small screens and horizontally on larger screens.
-        flexDirection: isMobile ? 'column' : 'row',
-        overflow:'auto',
-        minHeight:0,
-      }}>
+      <div style={{display:'flex', flex:1, flexDirection:isMobile ? 'column' : 'row', overflow:'visible', minHeight:0}}>
 
         {/* ─── LEFT: Event selector ─── */}
         <div style={{
-          // On small screens use full width; otherwise use a fixed sidebar width.
-          width: isMobile ? '100%' : 210,
-          overflowY:'auto',
-          borderRight:'1px solid #071422',
-          background:'rgba(0,2,10,0.7)',
-          flexShrink:0,
+          width:isMobile ? '100%' : 210, maxHeight:isMobile ? 220 : 'none', overflowY:'auto', borderRight:isMobile ? 'none' : '1px solid #071422', borderBottom:isMobile ? '1px solid #071422' : 'none',
+          background:'rgba(0,2,10,0.7)', flexShrink:0,
         }}>
           <div style={{
             padding:'7px 10px 4px', fontSize:8, color:'#1a3040',
@@ -1073,10 +1059,10 @@ function CMESonifier() {
         </div>
 
         {/* ─── CENTER: Canvas ─── */}
-        <div style={{flex:1, display:'flex', flexDirection:'column', minWidth:0}}>
+        <div style={{flex:1, display:'flex', flexDirection:'column', minWidth:0, minHeight:isMobile ? 420 : 0}}>
 
           {/* Canvas */}
-          <div style={{flex:1, position:'relative', overflow:'auto'}}>
+          <div style={{flex:'0 0 auto', minHeight:isMobile ? 340 : 0, height:isMobile ? 340 : 'auto', position:'relative', overflow:'hidden'}}>
             <canvas ref={canvasRef} width={700} height={380}
               style={{width:'100%', height:'100%', display:'block'}}/>
 
@@ -1102,7 +1088,7 @@ function CMESonifier() {
 
             {/* Storm badge */}
             <div style={{
-              position:'absolute', bottom:55, left:'50%', transform:'translateX(-50%)',
+              position:'absolute', bottom:isMobile ? 12 : 55, left:'50%', transform:'translateX(-50%)',
               fontSize:9, color:ev.color, letterSpacing:2, textTransform:'uppercase',
               textShadow:`0 0 8px ${ev.color}66`, opacity: playing ? 1 : 0.4,
               transition:'opacity 0.4s',
@@ -1111,9 +1097,9 @@ function CMESonifier() {
 
           {/* ─── Transport bar ─── */}
           <div style={{
-            display:'flex', alignItems:'center', gap:8, padding:'8px 12px',
-            borderTop:'1px solid #071422', background:'rgba(0,2,10,0.9)',
-            flexShrink:0, flexWrap:'wrap',
+            display:'flex', alignItems:'center', gap:8, padding:'10px 12px 14px',
+            borderTop:'1px solid #071422', background:'rgba(0,2,10,0.95)',
+            flexShrink:0, flexWrap:'wrap', position:'relative', zIndex:2,
           }}>
             {/* Play/Stop */}
             <button onClick={playing ? stopAudio : startAudio} style={{
@@ -1161,7 +1147,7 @@ function CMESonifier() {
             </div>
 
             {/* Level meter */}
-            <div style={{flex:1, display:'flex', alignItems:'center', gap:5, minWidth:80}}>
+            <div style={{flex:isMobile ? '1 1 100%' : 1, display:'flex', alignItems:'center', gap:5, minWidth:isMobile ? '100%' : 80}}>
               <span style={{fontSize:8, color:'#1e3040'}}>LEVEL</span>
               <div style={{flex:1, height:4, background:'#060e1c', borderRadius:2}}>
                 <div style={{
@@ -1171,6 +1157,7 @@ function CMESonifier() {
                   transition:'width 0.04s', boxShadow:`0 0 6px ${ev.color}44`,
                 }}/>
               </div>
+            </div>
 
             {/* Mode selector */}
             <div style={{display:'flex', alignItems:'center', gap:6}}>
@@ -1192,15 +1179,14 @@ function CMESonifier() {
                 value={tFrac} onChange={e => setTFrac(+e.target.value)}
                 style={{width:70, accentColor:ev.color, cursor: timeline ? 'pointer' : 'default', opacity: timeline ? 1 : 0.4}}/>
             </div>
-            </div>
           </div>
         </div>
 
         {/* ─── RIGHT: Physics panel ─── */}
         <div style={{
-          // On small screens use full width; otherwise use a fixed width for the physics panel.
-          width: isMobile ? '100%' : 268,
-          borderLeft:'1px solid #071422',
+          width:isMobile ? '100%' : 268,
+          borderLeft:isMobile ? 'none' : '1px solid #071422',
+          borderTop:isMobile ? '1px solid #071422' : 'none',
           flexShrink:0,
           background:'rgba(0,1,10,0.8)',
           display:'flex',
