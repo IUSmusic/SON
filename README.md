@@ -1,4 +1,5 @@
 # SON
+# CME Sonification Model 
 
 Demo:
 https://iusmusic.github.io/SON/
