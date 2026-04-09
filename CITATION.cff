@@ -3,18 +3,11 @@ message: "If you use this software, please cite it using the metadata below."
 title: "SON: CME Sonification Model"
 type: software
 authors:
-  - given-names: Pezhman
-    family-names: Farhangi
-    affiliation: "I/US Music"
-    orcid: "https://orcid.org/0009-0001-0463-4583"
+  - name: "IUSmusic"
 repository-code: "https://github.com/IUSmusic/SON"
 url: "https://iusmusic.github.io/SON/"
 abstract: >
-  SON is a browser-based sonification environment for representing
-  coronal mass ejection (CME) and geomagnetic storm events as
-  synchronized sound, visual state, and derived physical metrics.
-  It is designed as a compact research, exhibition, and educational
-  artifact with in-browser playback, visualization, and WAV export.
+  SON is a browser-based sonification environment for representing coronal mass ejection (CME) and geomagnetic storm events as synchronized sound, visual state, and derived physical metrics. It is designed as a compact research, exhibition, and educational artifact with in-browser playback, visualization, and WAV export.
 keywords:
   - sonification
   - heliophysics
@@ -24,3 +17,4 @@ keywords:
   - data visualization
   - web audio
   - browser-based research software
+license: "MIT"
