@@ -41,7 +41,7 @@ The repository is intentionally minimal: the full application is distributed as 
 12. [Limitations](#limitations)
 13. [Roadmap](#roadmap)
 14. [License](#license)
-15. [Contact / Permissions](#contact--permissions)
+15. [Contact](#contact)
 
 ---
 
