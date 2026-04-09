@@ -250,9 +250,6 @@ Potential future directions include:
 
 ## License
 
-This repository is **not open source**.
-
-All rights are reserved by the copyright holder. No permission is granted to use, copy, modify, merge, publish, distribute, sublicense, sell, or create derivative works from the repository contents unless explicit prior written permission is provided.
 
 See the [LICENSE](./LICENSE) file for the full terms.
 
