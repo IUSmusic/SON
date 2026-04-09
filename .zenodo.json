@@ -1,0 +1,37 @@
+{
+  "title": "SON: CME Sonification Model",
+  "upload_type": "software",
+  "access_right": "open",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Farhangi, Pezhman",
+      "orcid": "0009-0001-0463-4583",
+      "affiliation": "I/US Music",
+      "type": "ProjectLeader"
+    }
+  ],
+  "description": "SON is a browser-based sonification environment for representing coronal mass ejection (CME) and geomagnetic storm events as synchronized sound, visual state, and derived physical metrics. The repository is intentionally minimal and distributed as a compact research, exhibition, and educational artifact with in-browser playback, visualization, and WAV export.",
+  "keywords": [
+    "sonification",
+    "heliophysics",
+    "space weather",
+    "coronal mass ejection",
+    "geomagnetic storm",
+    "data visualization",
+    "web audio",
+    "browser-based research software"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/IUSmusic/SON",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://iusmusic.github.io/SON/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    }
+  ]
+}
