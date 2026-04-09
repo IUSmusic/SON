@@ -7,6 +7,7 @@ https://iusmusic.github.io/SON/
 
 ![Preview](/preview.png)
 
+[![DOI](https://zenodo.org/badge/1204798774.svg)](https://doi.org/10.5281/zenodo.19485888)
 [![Status](https://img.shields.io/badge/status-active-black)](#)
 [![License](https://img.shields.io/badge/license-all_rights_reserved-red)](./LICENSE)
 [![Type](https://img.shields.io/badge/type-research_software-blue)](#)
