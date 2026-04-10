@@ -1,9 +1,8 @@
 # Project SON
 
 ## CME Sonification Model
-https://iusmusic.github.io/SON/
+[![## CME Sonification Model](/preview.png)](https://iusmusic.github.io/SON/)
 
-![Preview](/preview.png)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19485889.svg)](https://doi.org/10.5281/zenodo.19485889)
 [![Status](https://img.shields.io/badge/status-active-black)](#)
