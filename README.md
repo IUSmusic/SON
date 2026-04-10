@@ -58,7 +58,7 @@ The resulting application serves three roles simultaneously:
 
 Space-weather events are usually communicated numerically, visually, or through textual forecasting products. SON explores a complementary question:
 
-> How can solar-wind and geomagnetic event structure be translated into a browser-based audiovisual instrument while preserving interpretability, parameter traceability, and physically grounded control relationships?
+> How can solar-wind and geomagnetic event structure be translated into audiovisual instrument while preserving interpretability, parameter traceability, and physically grounded control relationships?
 
 The project therefore emphasizes:
 
