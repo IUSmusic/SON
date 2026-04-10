@@ -1,6 +1,6 @@
-# SON
+# Project SON
 
-**CME Sonification Model**
+## CME Sonification Model
 https://iusmusic.github.io/SON/
 
 ![Preview](/preview.png)
